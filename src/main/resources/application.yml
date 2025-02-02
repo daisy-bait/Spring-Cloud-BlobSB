@@ -8,3 +8,7 @@ spring:
           account-name: {AZURE_STORAGE_ACCOUNT_NAME}
           account-key: {AZURE_STORAGE_ACCOUNT_KEY}
           container-name: {AZURE_STORAGE_CONTAINER_NAME}
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 20MB
