@@ -1,6 +1,6 @@
 package co.azure.daisy.daisy_azure_storage.controller;
 
-import co.azure.daisy.daisy_azure_storage.azure.BlobStorageService;
+import co.azure.daisy.daisy_azure_storage.azure.IBlobStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,10 +19,10 @@ import java.io.IOException;
 public class BlobController {
 
     @Autowired
-    BlobStorageService blobStorageService;
+    IBlobStorageService blobStorageService;
 
     @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    private ResponseEntity<String> uploadBlob(
+    public ResponseEntity<String> uploadBlob(
             @RequestPart("blob")MultipartFile blob) throws IOException {
 
         String url;
