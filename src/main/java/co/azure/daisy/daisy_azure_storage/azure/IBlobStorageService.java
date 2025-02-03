@@ -8,4 +8,8 @@ public interface IBlobStorageService {
 
     public String uploadBlob(MultipartFile blob) throws IOException;
 
+    public String deleteBlob(String blobName);
+
+    public boolean doesBlobExist(String blobName);
+
 }

@@ -45,4 +45,21 @@ public class BlobStorageService implements IBlobStorageService {
 
     }
 
+    @Override
+    public String deleteBlob(String blobName)  {
+        if (doesBlobExist(blobName)) {
+            BlobClient blobClient = containerClient.getBlobClient(blobName);
+            blobClient.delete();
+            return "successfully deleted " + blobName + " blob";
+        } else {
+            return "failed to delete " + blobName + " blob";
+        }
+    }
+
+    @Override
+    public boolean doesBlobExist(String blobName) {
+        BlobClient blobClient = containerClient.getBlobClient(blobName);
+        return blobClient.exists();
+    }
+
 }
